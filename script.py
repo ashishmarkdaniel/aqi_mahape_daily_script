@@ -38,12 +38,12 @@ def insert_max_date_aqi(data):
     Inserts only the row with the max date into supa_aqi_table.
     - `data`: A dictionary with 'aqi_data' and 'aqi_val'
     """
-    response = supabase.table("supa_aqi_table").insert(data).execute()
-    print("Response:", response)
+    response_data, response_count = supabase.table("supa_aqi_table").insert(data).execute()
+    print("Response:", response_data)
 
-    if response.data:  
-        print(f"Successfully inserted: {data}")
+    if response_data:  
+        print(f"Successfully inserted: {data} \n Inserted record count: {response_count}")
     else:  
-        print(f"Error inserting {data}: {response.error}")
+        print(f"Error inserting {data}")
 
 insert_max_date_aqi(max_aqi_record)
