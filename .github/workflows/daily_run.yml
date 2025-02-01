@@ -2,7 +2,7 @@ name: Run AQI Script
 
 on:
   schedule:
-    - cron: '30 9 * * *'  # Runs every day at 3 PM IST (9:30 AM UTC)
+    - cron: '30 10 * * *'  # Runs every day at 3 PM IST (9:30 AM UTC)
   workflow_dispatch:
 
 jobs:
