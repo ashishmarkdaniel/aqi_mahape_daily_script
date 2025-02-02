@@ -38,7 +38,7 @@ fetch_supa_db = supabase.table("supa_aqi_table") \
     .order("aqi_date", desc=True) \
     .limit(1) \
     .execute()
-max_date_supa = fetch_supa_db.data[0]['aqi_date']
+# max_date_supa = fetch_supa_db.data[0]['aqi_date']
 print(fetch_supa_db)
 filtered_data_list = [
     (date, aqi_value)
