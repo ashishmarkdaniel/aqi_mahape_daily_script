@@ -64,4 +64,7 @@ def insert_data_aqi(data):
     else:  
         print(f"Error inserting {data}")
 
-insert_data_aqi(final_data_list)
+if final_data_list:
+    insert_data_aqi(final_data_list)
+else:
+    print(f"Oops! No new data to insert: {final_data_list}")
