@@ -40,29 +40,28 @@ fetch_supa_db = supabase.table("supa_aqi_table") \
     .execute()
 
 date_part_supa, _ = fetch_supa_db
-max_date_supa = date_part_supa[0]['aqi_date']
-print(max_date_supa)
+print(date_part_supa)
 
-filtered_data_list = [
-    (date, aqi_value)
-    for date, aqi_value in data_list
-    if max_date_supa is None or (date > parser.parse(max_date_supa) and date <= max_date_scraped)
-]
+# filtered_data_list = [
+#     (date, aqi_value)
+#     for date, aqi_value in data_list
+#     if max_date_supa is None or (date > parser.parse(max_date_supa) and date <= max_date_scraped)
+# ]
 
-final_data_list = [{"aqi_date" : date.strftime("%Y-%m-%d"), "aqi_val" : aqi_val} for date, aqi_val in filtered_data_list]
-print(max_date_supa, max_date_scraped, final_data_list, sep="\n\n")
+# final_data_list = [{"aqi_date" : date.strftime("%Y-%m-%d"), "aqi_val" : aqi_val} for date, aqi_val in filtered_data_list]
+# print(max_date_supa, max_date_scraped, final_data_list, sep="\n\n")
 
-def insert_data_aqi(data):
-    """
-    Inserts only the row with the max date into supa_aqi_table.
-    - `data`: A dictionary with 'aqi_data' and 'aqi_val'
-    """
-    response_data, _ = supabase.table("supa_aqi_table").insert(data).execute()
-    print("Response:", response_data)
+# def insert_data_aqi(data):
+#     """
+#     Inserts only the row with the max date into supa_aqi_table.
+#     - `data`: A dictionary with 'aqi_data' and 'aqi_val'
+#     """
+#     response_data, _ = supabase.table("supa_aqi_table").insert(data).execute()
+#     print("Response:", response_data)
 
-    if response_data:  
-        print(f"Successfully inserted: {data}")
-    else:  
-        print(f"Error inserting {data}")
+#     if response_data:  
+#         print(f"Successfully inserted: {data}")
+#     else:  
+#         print(f"Error inserting {data}")
 
 # insert_data_aqi(final_data_list)
