@@ -49,6 +49,7 @@ filtered_data_list = [
 ]
 
 final_data_list = [{"aqi_date" : date.strftime("%Y-%m-%d"), "aqi_val" : aqi_val} for date, aqi_val in filtered_data_list]
+print(max_date_supa, max_date_scraped, final_data_list, sep="\n\n")
 
 def insert_data_aqi(data):
     """
@@ -63,4 +64,4 @@ def insert_data_aqi(data):
     else:  
         print(f"Error inserting {data}")
 
-insert_data_aqi(final_data_list)
+# insert_data_aqi(final_data_list)
