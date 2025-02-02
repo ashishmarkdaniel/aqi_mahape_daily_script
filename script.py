@@ -34,7 +34,9 @@ max_date_scraped = max_date_row[0]
 
 #fetch max available date in supa db
 fetch_supa_db = supabase.table("supa_aqi_table") \
-    .select("max(aqi_date)") \
+    .select("*") \
+    .order("aqi_date", desc=True)\
+    .limit(1)\
     .execute()
 
 # date_part_supa, _ = fetch_supa_db
