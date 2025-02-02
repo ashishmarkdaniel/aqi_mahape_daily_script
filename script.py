@@ -38,8 +38,8 @@ fetch_supa_db = supabase.table("supa_aqi_table") \
     .order("aqi_date", desc=True) \
     .limit(1) \
     .execute()
-# max_date_supa = fetch_supa_db.data[0]['aqi_date']
-print(fetch_supa_db)
+max_date_supa = fetch_supa_db[0]['aqi_date']
+
 filtered_data_list = [
     (date, aqi_value)
     for date, aqi_value in data_list
@@ -61,4 +61,4 @@ def insert_data_aqi(data):
     else:  
         print(f"Error inserting {data}")
 
-# insert_data_aqi(final_data_list)
+insert_data_aqi(final_data_list)
