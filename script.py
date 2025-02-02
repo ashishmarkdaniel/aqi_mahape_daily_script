@@ -40,7 +40,7 @@ fetch_supa_db = supabase.table("supa_aqi_table") \
     .execute()
 
 date_part_supa, _ = fetch_supa_db
-print(date_part_supa)
+print(date_part_supa[1][0]['aqi_date'])
 
 # filtered_data_list = [
 #     (date, aqi_value)
